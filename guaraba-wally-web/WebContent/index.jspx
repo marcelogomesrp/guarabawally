@@ -1,0 +1,17 @@
+<ui:composition
+	template="/WEB-INF/templates/base.jspx"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:rest="http://restfaces.dev.java.net">
+
+	<ui:define name="conteudo">
+		<f:view>
+			<f:loadBundle basename="messages" var="message"/>  			
+			<p><h:outputText value="#{message.SejaBemVindo}" /></p>  
+		</f:view>
+	</ui:define>
+</ui:composition>

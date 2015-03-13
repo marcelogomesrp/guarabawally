@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+    version="1.2">
+
+    <application>
+    
+        <locale-config>
+           <default-locale>pt_BR</default-locale>
+           <supported-locale>pt_BR</supported-locale>
+           <supported-locale>en_US</supported-locale>
+           <supported-locale>es_ES</supported-locale>
+        </locale-config>
+        
+		<!-- Facelets -->
+			<view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
+		<!-- /Facelets -->
+
+		<!-- Restfaces -->
+			<view-handler>org.restfaces.application.RestViewHandler</view-handler>
+			<navigation-handler>org.restfaces.application.RestNavigationHandler</navigation-handler>
+		<!-- /Restfaces -->
+
+	</application>
+
+	<!-- Manageds Beans -->
+	
+	    <managed-bean>
+	    	<managed-bean-name>fornecedorBean</managed-bean-name>
+	    	<managed-bean-class>br.com.guaraba.wally.web.controller.FornecedorBean</managed-bean-class>
+	    	<managed-bean-scope>session</managed-bean-scope>
+	    </managed-bean>
+	    
+	    <managed-bean>
+	    	<managed-bean-name>indexBean</managed-bean-name>
+	    	<managed-bean-class>br.com.guaraba.wally.web.controller.IndexBean</managed-bean-class>
+	    	<managed-bean-scope>request</managed-bean-scope>
+	        <managed-property>
+	        	<property-name>produtoBeanAccessor</property-name>
+	        	<property-class>br.com.guaraba.wally.web.controller.ProdutoBean</property-class>
+	        	<value>#{produtoBean}</value>
+	        </managed-property>
+	    </managed-bean>
+	
+	    <managed-bean>
+	    	<managed-bean-name>loginBean</managed-bean-name>
+	    	<managed-bean-class>br.com.guaraba.wally.web.controller.LoginBean</managed-bean-class>
+	    	<managed-bean-scope>request</managed-bean-scope>
+	    	<managed-property>
+	    		<property-name>fornecedorBeanAccessor</property-name>
+	    		<property-class>br.com.guaraba.wally.web.controller.FornecedorBean</property-class>
+	    		<value>#{fornecedorBean}</value>
+	    	</managed-property>
+	    </managed-bean>
+	
+	    <managed-bean>
+	    	<managed-bean-name>produtoBean</managed-bean-name>
+	    	<managed-bean-class>br.com.guaraba.wally.web.controller.ProdutoBean</managed-bean-class>
+	    	<managed-bean-scope>session</managed-bean-scope>
+	    	<managed-property>
+	    		<property-name>fornecedorBeanAccessor</property-name>
+	    		<property-class>br.com.guaraba.wally.web.controller.FornecedorBean</property-class>
+	    		<value>#{fornecedorBean}</value>
+	    	</managed-property>
+	    </managed-bean>
+	
+	    <managed-bean>
+	    	<managed-bean-name>anuncioBean</managed-bean-name>
+	    	<managed-bean-class>br.com.guaraba.wally.web.controller.AnuncioBean</managed-bean-class>
+	    	<managed-bean-scope>session</managed-bean-scope>
+	        <managed-property>
+	        	<property-name>produtoBeanAccessor</property-name>
+	        	<property-class>br.com.guaraba.wally.web.controller.ProdutoBean</property-class>
+	        	<value>#{produtoBean}</value>
+	        </managed-property>
+	        <managed-property>
+	        	<property-name>fornecedorBeanAccessor</property-name>
+	        	<property-class>br.com.guaraba.wally.web.controller.FornecedorBean</property-class>
+	        	<value>#{fornecedorBean}</value>
+	        </managed-property>
+	    </managed-bean>
+	
+	    <managed-bean>
+	    	<managed-bean-name>categoriaBean</managed-bean-name>
+	    	<managed-bean-class>br.com.guaraba.wally.web.controller.CategoriaBean</managed-bean-class>
+	    	<managed-bean-scope>request</managed-bean-scope>
+	    </managed-bean>
+	    
+	    <managed-bean>
+	    	<managed-bean-name>gmapBean</managed-bean-name>
+	    	<managed-bean-class>br.com.guaraba.wally.web.controller.GmapBean</managed-bean-class>
+	    	<managed-bean-scope>request</managed-bean-scope>
+	    </managed-bean>
+
+	    <managed-bean>
+	    	<managed-bean-name>linguaBean</managed-bean-name>
+	    	<managed-bean-class>br.com.guaraba.wally.web.controller.util.LinguaBackingBean</managed-bean-class>	    	
+	    	<managed-bean-scope>session</managed-bean-scope>
+	    </managed-bean>
+	    
+	   	<managed-bean>
+	    	<managed-bean-name>contatoBean</managed-bean-name>
+	    	<managed-bean-class>br.com.guaraba.wally.web.controller.ContatoBean</managed-bean-class>
+	    	<managed-bean-scope>request</managed-bean-scope>
+	    </managed-bean>
+    
+	<!-- /Manageds Beans -->
+    
+    
+	<!-- Navigation Rules -->
+	
+		<!-- Principal -->
+
+		 	<navigation-rule>
+		    	<navigation-case>
+		    		<from-outcome>principal</from-outcome>
+		    		<to-view-id>/index.jspx</to-view-id>
+		    		<redirect/>
+		    	</navigation-case>
+			</navigation-rule>
+		    
+		    <navigation-rule>
+		    	<navigation-case>
+		    		<from-outcome>logar</from-outcome>
+		    		<to-view-id>/login.jspx</to-view-id>
+		    		<redirect/>
+		    	</navigation-case>
+		    </navigation-rule>
+		    
+		    <navigation-rule>
+		    	<navigation-case>
+		    		<from-outcome>logoff</from-outcome>
+		    		<to-view-id>/index.jspx</to-view-id>
+		    		<redirect/>
+		    	</navigation-case>
+		    </navigation-rule> 
+	    
+		    <navigation-rule>
+		    	<navigation-case>
+		    		<from-outcome>cadastrarFornecedor</from-outcome>
+		    		<to-view-id>/fornecedor/cadastro.jspx</to-view-id>
+		    		<redirect/>
+		    	</navigation-case>
+		    </navigation-rule>
+		    
+		    <navigation-rule>
+		    	<navigation-case>  
+		            <from-outcome>cadastrarProduto</from-outcome>
+		    		<to-view-id>/produto/cadastro.jspx</to-view-id>
+		    		<redirect/>
+		    	</navigation-case>
+		    </navigation-rule>
+		    
+		    <navigation-rule>
+		    	<navigation-case>  
+		            <from-outcome>listarProdutos</from-outcome>
+		    		<to-view-id>/produto/listaporfornecedor.jspx</to-view-id>
+		    		<redirect/>
+		    	</navigation-case>
+		    </navigation-rule>
+		    
+		    <navigation-rule>
+		    	<navigation-case>  
+		            <from-outcome>listarProdutosPorFonecedor</from-outcome>
+		    		<to-view-id>/produto/listaporfornecedor.jspx</to-view-id>
+		    		<redirect/>
+		    	</navigation-case>
+		    </navigation-rule>
+	    
+		    <navigation-rule>
+		    	<navigation-case>  
+		            <from-outcome>listarAnuncios</from-outcome>
+		    		<to-view-id>/anuncio/lista.jspx</to-view-id>
+		    		<redirect/>
+		    	</navigation-case>
+		    </navigation-rule>
+
+		 	<navigation-rule>
+		    	<navigation-case>
+		    		<from-outcome>faleconosco</from-outcome>
+		    		<to-view-id>/faleconosco.jspx</to-view-id>
+		    		<redirect/>
+		    	</navigation-case>
+			</navigation-rule>
+
+		 	<navigation-rule>
+		    	<navigation-case>
+		    		<from-outcome>sobre</from-outcome>
+		    		<to-view-id>/sobre.jspx</to-view-id>
+		    		<redirect/>
+		    	</navigation-case>
+			</navigation-rule>
+	    
+	    <!-- /Principal -->
+	    
+	    <!-- Fornecedor -->
+	    
+		    <navigation-rule>       
+		        <navigation-case>
+		            <from-action>#{fornecedorBean.cadastrar}</from-action>         
+		            <from-outcome>sucesso</from-outcome>
+		            <to-view-id>/index.jspx</to-view-id>
+		            <redirect />
+		        </navigation-case>
+		    </navigation-rule>
+		    
+		    <navigation-rule>       
+		        <navigation-case>
+		            <from-action>#{fornecedorBean.minhaConta}</from-action>         
+		            <from-outcome>sucesso</from-outcome>
+		            <to-view-id>/fornecedor/minhaconta.jspx</to-view-id>
+		            <redirect />
+		        </navigation-case>
+		    </navigation-rule>
+
+		    <navigation-rule>       
+		        <navigation-case>
+		            <from-action>#{fornecedorBean.editarEndereco}</from-action>         
+		            <from-outcome>sucesso</from-outcome>
+		            <to-view-id>/fornecedor/editarendereco.jspx</to-view-id>
+		            <redirect />
+		        </navigation-case>
+		    </navigation-rule>
+		    
+		    <navigation-rule>       
+		        <navigation-case>
+		            <from-action>#{fornecedorBean.editarContato}</from-action>         
+		            <from-outcome>sucesso</from-outcome>
+		            <to-view-id>/fornecedor/editarcontato.jspx</to-view-id>
+		            <redirect />
+		        </navigation-case>
+		    </navigation-rule>
+		    
+		    <navigation-rule>       
+		        <navigation-case>
+		            <from-action>#{fornecedorBean.editarSenha}</from-action>         
+		            <from-outcome>sucesso</from-outcome>
+		            <to-view-id>/fornecedor/editarsenha.jspx</to-view-id>
+		            <redirect />
+		        </navigation-case>
+		    </navigation-rule>
+	    
+	    <!-- /Fornecedor -->
+	    
+	    <!-- Logar -->
+	    
+			<navigation-rule>
+		        <navigation-case>
+		            <from-action>#{loginBean.logar}</from-action>         
+		            <from-outcome>sucesso</from-outcome>
+		            <to-view-id>/index.jspx</to-view-id>
+		            <redirect />
+		        </navigation-case>
+		    </navigation-rule>
+	    
+	    <!-- /Logar -->
+	    	    
+	    <!-- Produto -->
+	    
+		    <navigation-rule>       
+		        <navigation-case>
+		            <from-action>#{produtoBean.cadastrar}</from-action>         
+		            <from-outcome>sucesso</from-outcome>
+		            <to-view-id>/produto/listaporfornecedor.jspx</to-view-id>
+		            <redirect />
+		        </navigation-case>
+		    </navigation-rule>
+		    
+		    <navigation-rule>
+			    <navigation-case>
+		            <from-action>#{produtoBean.visualizar}</from-action>
+		            <from-outcome>sucesso</from-outcome>
+		            <to-view-id>/produto/visualiza.jspx</to-view-id>
+		        </navigation-case>
+	        </navigation-rule>
+		    
+		    <navigation-rule>
+			    <navigation-case>
+		            <from-action>#{produtoBean.editar}</from-action>
+		            <from-outcome>sucesso</from-outcome>
+		            <to-view-id>/produto/cadastro.jspx</to-view-id>
+		        </navigation-case>
+	        </navigation-rule>
+		    
+		    <navigation-rule>
+			    <navigation-case>
+		            <from-action>#{produtoBean.excluir}</from-action>
+		            <from-outcome>sucesso</from-outcome>
+		            <to-view-id>/produto/listaporfornecedor.jspx</to-view-id>
+		            <redirect/>
+		        </navigation-case>
+	        </navigation-rule>
+	        
+	        <navigation-rule>       
+		        <navigation-case>
+		            <from-action>#{produtoBean.cadastrarAnuncio}</from-action>         
+		            <from-outcome>sucesso</from-outcome>
+		            <to-view-id>/anuncio/cadastro.jspx</to-view-id>
+		            <redirect />
+		        </navigation-case>
+		    </navigation-rule>
+	    
+	    <!-- /Produto -->
+	    
+	    <!-- Anuncio -->
+	    
+		    <navigation-rule>       
+		        <navigation-case>
+		            <from-action>#{anuncioBean.cadastrar}</from-action>         
+		            <from-outcome>sucesso</from-outcome>
+		            <to-view-id>/anuncio/lista.jspx</to-view-id>
+		            <redirect />
+		        </navigation-case>
+		    </navigation-rule>
+	    
+		    <navigation-rule>       
+		        <navigation-case>
+		            <from-action>#{anuncioBean.visualizar}</from-action>         
+		            <from-outcome>sucesso</from-outcome>
+		            <to-view-id>/anuncio/visualiza.jspx</to-view-id>
+		        </navigation-case>
+		    </navigation-rule>
+
+		    <navigation-rule>       
+		        <navigation-case>
+		            <from-action>#{anuncioBean.editar}</from-action>         
+		            <from-outcome>sucesso</from-outcome>
+		            <to-view-id>/anuncio/edita.jspx</to-view-id>
+		        </navigation-case>
+		    </navigation-rule>
+		    		    
+	    
+	    <!-- /Anuncio -->
+	    
+    <!-- /Navigation Rules -->
+
+</faces-config>

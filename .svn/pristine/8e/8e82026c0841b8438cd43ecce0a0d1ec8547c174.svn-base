@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+	<TextView  
+    	android:layout_width="fill_parent" 
+    	android:layout_height="wrap_content" 
+    	android:text="@string/buscar_titulo"
+    	android:gravity="center_horizontal"
+    	android:textStyle="bold"
+    	android:paddingTop="10px"
+    	android:paddingBottom="10px"
+    	android:textSize="20px"/>
+
+	<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			 android:layout_height="fill_parent"
+			 android:layout_width="fill_parent"
+			 android:stretchColumns="1">
+
+		<TableRow android:gravity="left">
+			<TextView android:text="@string/buscar_lblProduto" android:gravity="right" />
+			<EditText android:id="@+id/buscar_txtProduto" android:width="100px" />
+		</TableRow>
+
+		<TableRow android:gravity="left">
+			<TextView android:text="@string/buscar_lblValor" />
+			<EditText android:id="@+id/buscar_txtValorDe" android:inputType="numberDecimal" />
+		</TableRow>
+
+		<TableRow android:gravity="right">
+			<Button android:id="@+id/buscar_btnOK" android:text="@string/buscar_btnOk" />
+		</TableRow>
+
+	</TableLayout>
+
+</LinearLayout>

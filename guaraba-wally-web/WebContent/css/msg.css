@@ -1,0 +1,28 @@
+.msg {
+
+	padding: 10px;
+	vertical-align: middle;
+	text-align: center;
+	border: 1px solid #cccccc;
+}
+
+.msg error {
+
+	color: red;
+
+}
+
+.msg fatal {
+
+	color: red;
+}
+
+.msg info {
+
+	color: #888888;
+}
+
+.msg warn {
+
+	color: yellow;
+}

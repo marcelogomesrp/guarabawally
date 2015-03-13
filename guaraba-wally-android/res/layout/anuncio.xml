@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+	<TextView  
+    	android:layout_width="fill_parent" 
+    	android:layout_height="wrap_content" 
+    	android:text="@string/anuncio_titulo"
+    	android:gravity="center_horizontal"
+    	android:textStyle="bold"
+    	android:paddingTop="10px"
+    	android:paddingBottom="10px"
+    	android:textSize="20px"/>
+
+	<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			 android:layout_height="fill_parent"
+			 android:layout_width="fill_parent"
+			 android:stretchColumns="1">
+
+		<TableRow android:gravity="left">
+			<TextView android:text="@string/anuncio_fornecedor" android:gravity="right" />
+			<EditText android:id="@+id/anuncio_txtFornecedor" android:width="100px" android:enabled="false" />
+		</TableRow>
+
+		<TableRow android:gravity="left">
+			<TextView android:text="@string/anuncio_produto" android:gravity="right" />
+			<EditText android:id="@+id/anuncio_txtProduto" android:width="100px" android:enabled="false" />
+		</TableRow>
+
+		<TableRow android:gravity="left">
+			<TextView android:text="@string/anuncio_descricao" android:gravity="right" />
+			<EditText android:id="@+id/anuncio_txtDescricao" android:width="100px" android:enabled="false" android:lines="5" />
+		</TableRow>
+		
+		<TableRow android:gravity="left">
+			<TextView android:text="@string/anuncio_categoria" android:gravity="right" />
+			<EditText android:id="@+id/anuncio_txtCategoria" android:width="100px" android:enabled="false" />
+		</TableRow>
+		
+		<TableRow android:gravity="left">
+			<TextView android:text="@string/anuncio_valor" android:gravity="right" />
+			<EditText android:id="@+id/anuncio_txtValor" android:width="100px" android:enabled="false" android:numeric="decimal" />
+		</TableRow>
+
+		<TableRow android:gravity="right">
+			<Button android:id="@+id/anuncio_btnVerMapa" android:text="@string/anuncio_btnVerMapa" />
+		</TableRow>
+
+	</TableLayout>
+
+</LinearLayout>

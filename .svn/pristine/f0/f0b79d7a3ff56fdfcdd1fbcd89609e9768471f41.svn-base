@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:rest="http://restfaces.dev.java.net">
+
+	<f:view locale="#{linguaBean.locale}" >
+		<f:loadBundle basename="messages" var="message" />
+		<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+			<title> <h:outputText value="#{message.Titulo}" /> <ui:insert name="title" /> </title>
+			
+			<!-- CSS -->
+			<link href="#{facesContext.externalContext.request.contextPath}/css/geral.css" media="screen" rel="stylesheet" type="text/css" />
+			<link href="#{facesContext.externalContext.request.contextPath}/css/message.css" media="screen" rel="stylesheet" type="text/css" />
+			<link href="#{facesContext.externalContext.request.contextPath}/css/formulario.css" media="screen" rel="stylesheet" type="text/css" />
+			<link href="#{facesContext.externalContext.request.contextPath}/css/menu.css" media="screen" rel="stylesheet" type="text/css" />
+			<link href="#{facesContext.externalContext.request.contextPath}/css/dataTable.css" media="screen" rel="stylesheet" type="text/css" />
+			<link href="#{facesContext.externalContext.request.contextPath}/css/richPanel.css" media="screen" rel="stylesheet" type="text/css" />
+			<link href="#{facesContext.externalContext.request.contextPath}/css/tooltip.css" media="screen" rel="stylesheet" type="text/css" />
+			<!-- /CSS -->
+			
+			<!-- JS -->
+			<script src="#{facesContext.externalContext.request.contextPath}/js/geral.js" type="text/javascript" />
+			<script src="#{facesContext.externalContext.request.contextPath}/js/mascarasvalidacoes.js" type="text/javascript" />
+			<script src="#{facesContext.externalContext.request.contextPath}/js/browser.identifier.js" type="text/javascript" />
+			<script src="#{facesContext.externalContext.request.contextPath}/js/tooltip.js" type="text/javascript" />
+			
+			<script src="#{facesContext.externalContext.request.contextPath}/js/jquery.maskedinput-1.2.2.min.js" type="text/javascript" />
+
+			<!-- /JS -->
+			
+            </head>
+		<body>
+			<ui:insert name="geralConteudo" />
+		</body>
+	</f:view>
+</html>

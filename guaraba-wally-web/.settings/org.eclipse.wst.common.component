@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="guaraba-wally-web">
+        <wb-resource deploy-path="/" source-path="/WebContent"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/Resources"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/resources"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/META-INF"/>
+        <dependent-module archiveName="guaraba-commons.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/guaraba-commons/guaraba-commons">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="guaraba-monosafe-core.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/guaraba-monosafe-core/guaraba-monosafe-core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="guaraba-wally-core.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/guaraba-wally-core/guaraba-wally-core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="guaraba-wally-web"/>
+        <property name="java-output-path"/>
+    </wb-module>
+</project-modules>

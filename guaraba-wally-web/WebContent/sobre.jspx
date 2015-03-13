@@ -1,0 +1,40 @@
+<ui:composition template="/WEB-INF/templates/base.jspx"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:rest="http://restfaces.dev.java.net">
+
+	<ui:define name="sub-titulo">
+		<f:view>
+			<f:loadBundle basename="messages" var="message" />
+			<h:outputText value="#{message.sobre01}" />
+		</f:view>
+	</ui:define>
+
+	<ui:define name="conteudo">
+		<f:view>
+			<h:form id="sobre">
+				<h4><h:outputText value="#{message.sobre02}" /></h4>
+				<p><h:outputText value="#{message.sobre03}" /></p>
+				<p><h:outputText value="#{message.sobre04}" /></p>
+				<p><h:outputText value="#{message.sobre05}" /></p>
+				<h4><h:outputText value="#{message.sobre06}" /></h4>
+				<p><h:outputText value="#{message.sobre07}" /></p>
+				<p><h:outputText value="#{message.sobre08}" /></p>
+				<p><h:outputText value="#{message.sobre09}" /></p>
+				<p><h:outputText value="#{message.sobre10}" /></p>
+				<h4><h:outputText value="#{message.sobre11}" /></h4>
+				<p><h:outputText value="#{message.sobre12}" /></p>
+				<p><h:outputText value="#{message.sobre13}" /></p>
+				<h4><h:outputText value="#{message.sobre14}" /></h4>
+				<p><h:outputText value="#{message.sobre15}" /></p>
+				<p><h:outputText value="#{message.sobre16}" /></p>
+				<p><h:outputText value="#{message.sobre17}" /></p>
+				<p><h:outputText value="#{message.sobre18}" /></p>
+			</h:form>
+		</f:view>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">guaraba wally</string>
+    <string name="buscar_titulo">Buscar anúncios</string>
+    <string name="buscar_lblProduto">Produto</string>
+    <string name="buscar_lblValor">Valor Máximo</string>
+    <string name="buscar_btnOk">Ok</string>
+    <string name="buscar_btnSair">Sair</string>
+
+	<string name="anuncio_titulo">Anúncio</string>
+	<string name="anuncio_fornecedor">Fornecedor</string>
+	<string name="anuncio_produto">Produto</string>
+	<string name="anuncio_descricao">Descrição</string>
+	<string name="anuncio_categoria">Categoria</string>
+	<string name="anuncio_valor">Valor</string>
+	<string name="anuncio_btnVerMapa">Ver no Mapa</string>
+
+    <string name="categorias_titulo">Categorias encontradas</string>
+
+    <string name="mapa_titulo">Mapa</string>
+</resources>

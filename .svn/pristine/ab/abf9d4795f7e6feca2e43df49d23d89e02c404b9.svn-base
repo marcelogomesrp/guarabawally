@@ -1,0 +1,91 @@
+<ui:composition template="/WEB-INF/templates/base.jspx"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:rest="http://restfaces.dev.java.net">
+
+	<ui:define name="title">
+		<f:view>
+			<f:loadBundle basename="messages" var="message" />
+			<h:outputText value="Visualizar Produto" />
+		</f:view>
+	</ui:define>
+
+	<ui:define name="navegacao">
+		<f:view>
+			<h:form id="form_navegacao">
+				<h:commandLink value="#{message.navegacao_home}"
+					action="#{indexBean.principal}" />
+				<span> </span>
+				<h:outputText value="#{message.navegacao_separador}" />
+				<span> </span>
+				<h:outputText value="#{message.Produto}" />
+				<span> </span>
+				<h:outputText value="#{message.navegacao_separador}" />
+				<span> </span>
+				<h:outputText value="Visualizar" />
+			</h:form>
+		</f:view>
+	</ui:define>
+
+	<ui:define name="titulo">
+		<f:view>
+			<h:outputText value="Visualizar" />
+		</f:view>
+	</ui:define>
+
+	<ui:define name="conteudo">
+		<h:outputText rendered="#{fornecedorBean.fornecedor != null}">
+			<f:view>
+				<h:form id="form_produto_lista">
+					<center>
+					<table class="formulario" border="0" cellpadding="10"
+						cellspacing="10" width="70%">
+						<tr>
+							<td colspan="2" class="formulario_sessao">
+							<h4><h:outputText value="Editar Produto" /></h4>
+							</td>
+						</tr>
+						<tr>
+							<td width="90" class="formulario_campo"><h:outputText
+								value="Nome : "></h:outputText></td>
+							<td><h:inputText id="nome"
+								value="#{produtoBean.produto.nome }"></h:inputText></td>
+						</tr>
+
+						<tr>
+							<td width="90" class="formulario_campo"><h:outputText
+								value="Descricao : "></h:outputText></td>
+							<td><h:inputText id="descricao"
+								value="#{produtoBean.produto.descricao }"></h:inputText></td>
+						</tr>
+
+						<tr>
+							<td width="90" class="formulario_campo"><h:outputText
+								value="Categoria : "></h:outputText></td>
+							<td><h:inputText id="categoria"
+								value="#{produtoBean.produto.categoria.nome }"></h:inputText></td>
+						</tr>
+					</table>
+					</center>
+				</h:form>
+			</f:view>
+		</h:outputText>
+		
+		<h:outputText rendered="#{fornecedorBean.fornecedor == null}">
+			<f:view>
+				<h:form id="form_anuncio_logar">
+
+					<h:outputText value="#{message.NecessarioEstarLogado}"></h:outputText>
+					<span> </span>
+					<h:commandLink id="lnkLogin" action="#{produtoBean.efetuarLogin}"
+						value="#{message.CliqueAquiParaEfetuarOLogin}"></h:commandLink>
+				</h:form>
+			</f:view>
+		</h:outputText>
+
+	</ui:define>
+</ui:composition>

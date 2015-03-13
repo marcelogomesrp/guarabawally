@@ -1,0 +1,140 @@
+<ui:composition template="/WEB-INF/templates/base.jspx"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:rest="http://restfaces.dev.java.net">
+
+
+	<ui:define name="title">
+		<f:view>
+			<f:loadBundle basename="messages" var="message" />
+			<h:outputText value="#{message.fornecedor_cadastro_title}" />
+		</f:view>
+	</ui:define>
+
+	<ui:define name="navegacao">
+		<f:view>
+			<h:form id="form_navegacao">
+				<h:commandLink value="#{message.navegacao_home}"
+					action="#{indexBean.principal}" />
+				<span> </span>
+				<h:outputText value="#{message.navegacao_separador}" />
+				<span> </span>
+				<h:outputText value="#{message.navegacao_cadastrese}" />
+			</h:form>
+		</f:view>
+	</ui:define>
+
+	<ui:define name="titulo">
+		<f:view>
+			<h:outputText value="#{message.fornecedor_cadastro_titulo}" />
+		</f:view>
+	</ui:define>
+
+	<ui:define name="conteudo">
+
+		<h:outputText rendered="#{fornecedorBean.fornecedor.id != null}">
+			<f:view>
+				<h:form id="form_fornecedor_cadastro">
+					<center>
+					<table class="formulario" border="0" cellpadding="10"
+						cellspacing="10" width="70%">
+						<tr>
+							<td colspan="2" class="formulario_sessao">
+							<h4><h:outputText
+								value="#{message.fornecedor_cadastro_form_endereco}" /></h4>
+							</td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.fornecedor_cadastro_form_endereco_logradouro}" /></td>
+							<td><h:inputText id="logradouro"
+								value="#{fornecedorBean.fornecedor.endereco.logradouro}"
+								size="50" maxlength="100" class="js_hoverLauncher" />
+							<div class="js_hoverData">#{message.Escreva_o_logradouro}</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.fornecedor_cadastro_form_endereco_numero}" /></td>
+							<td><h:inputText id="numero"
+								value="#{fornecedorBean.fornecedor.endereco.numero}" size="10"
+								maxlength="4" class="js_hoverLauncher" />
+							<div class="js_hoverData">#{message.Escreva_o_numero}</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.fornecedor_cadastro_form_endereco_complemento}" /></td>
+							<td><h:inputText id="complemento"
+								value="#{fornecedorBean.fornecedor.endereco.complemento}"
+								size="10" maxlength="100" class="js_hoverLauncher" />
+							<div class="js_hoverData">#{message.Escreva_o_complemento_se_necessario}</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.fornecedor_cadastro_form_endereco_bairro}" /></td>
+							<td><h:inputText id="bairro"
+								value="#{fornecedorBean.fornecedor.endereco.bairro}" size="50"
+								maxlength="100" class="js_hoverLauncher" />
+							<div class="js_hoverData">#{message.Escreva_o_bairro}</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.fornecedor_cadastro_form_endereco_cep}" /></td>
+							<td><h:inputText id="cep"
+								value="#{fornecedorBean.fornecedor.endereco.cep}" size="20"
+								maxlength="8" class="js_hoverLauncher CEPMask" />
+							<div class="js_hoverData">#{message.Escreva_o_CEP}</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.fornecedor_cadastro_form_endereco_cidade}" /></td>
+							<td><h:inputText id="cidade"
+								value="#{fornecedorBean.fornecedor.endereco.cidade}" size="50"
+								maxlength="100" class="js_hoverLauncher" />
+							<div class="js_hoverData">#{message.Escreva_a_cidade}</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.fornecedor_cadastro_form_endereco_estado}" /></td>
+							<td><span class="js_hoverLauncher"> <h:selectOneMenu
+								id="estado" value="#{fornecedorBean.fornecedor.endereco.estado}"
+								class="js_hoverLauncher">
+								<f:selectItems value="#{fornecedorBean.estados}" />
+							</h:selectOneMenu> </span>
+							<div class="js_hoverData">#{message.Escolha_o_estado}</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" align="right"><h:commandButton
+								id="btnSalvar" value="Salvar" action="#{fornecedorBean.salvar}"
+								class="js_hoverLauncher" />
+							<div class="js_hoverData">#{message.Clique_aqui_para_salvar_as_alteracoes}</div>
+							</td>
+						</tr>
+					</table>
+					</center>
+				</h:form>
+			</f:view>
+		</h:outputText>
+
+		<h:outputText rendered="#{fornecedorBean.fornecedor == null}">
+			<f:view>
+				<h:form id="form_anuncio_logar">
+					<h:outputText value="#{message.NecessarioEstarLogado}"></h:outputText>
+					<span> </span>
+					<h:commandLink id="lnkLogin" action="#{produtoBean.efetuarLogin}"
+						value="#{message.CliqueAquiParaEfetuarOLogin}"></h:commandLink>
+				</h:form>
+			</f:view>
+		</h:outputText>
+	</ui:define>
+</ui:composition>

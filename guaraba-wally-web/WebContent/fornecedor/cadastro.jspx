@@ -1,0 +1,309 @@
+<ui:composition template="/WEB-INF/templates/base.jspx"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:rest="http://restfaces.dev.java.net">
+
+	<ui:define name="title">
+		<f:view>
+			<f:loadBundle basename="messages" var="message" />
+			<h:outputText value="#{message.fornecedor_cadastro_title}" />
+		</f:view>
+	</ui:define>
+	
+	<ui:define name="navegacao">
+		<f:view>
+			<h:form id="form_navegacao">
+				<h:commandLink value="#{message.navegacao_home}"
+					action="#{indexBean.principal}" />
+				<span> </span>
+				<h:outputText value="#{message.navegacao_separador}" />
+				<span> </span>
+				<h:outputText value="#{message.navegacao_cadastrese}" />
+			</h:form>
+		</f:view>
+	</ui:define>
+
+	<ui:define name="titulo">
+		<f:view>
+			<h:outputText value="#{message.fornecedor_cadastro_titulo}" />
+		</f:view>
+	</ui:define>
+	
+	<ui:define name="conteudo">
+		<f:view>
+			<h:form id="form_fornecedor_cadastro">
+				<h:outputText rendered="#{fornecedorBean.fornecedor.id == null}">
+					<center>
+					<table class="formulario" border="0" cellpadding="10"
+						cellspacing="10" width="70%">
+						<tr>
+							<td colspan="2" class="formulario_sessao">
+							<h4><h:outputText
+								value="#{message.fornecedor_cadastro_form_fornecedor}" /></h4>
+							</td>
+						</tr>
+						<tr>
+							<td width="90" class="formulario_campo"><h:outputText
+								value="#{message.fornecedor_cadastro_form_cnpj}" /></td>
+							<td>
+							<h:inputText id="cnpj"
+								value="#{fornecedorBean.fornecedor.cnpj}" size="30"
+								maxlength="14" class="CNPJMask" /> <!-- Precisa deixar a class pois sera usada pelo JQuery!!! -->
+								<span id="tooltipCNPJ">
+									<rich:toolTip for="cnpj"
+										followMouse="true" direction="top-right" showDelay="500"
+										styleClass="tooltip">
+										<h:outputText value="#{message.Escreva_o_numero_do_CNPJ}"></h:outputText>
+									</rich:toolTip>
+								</span>
+							</td>							
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.fornecedor_cadastro_form_razaoSocial}" /></td>
+							<td><h:inputText id="razaoSocial"
+								value="#{fornecedorBean.fornecedor.razaoSocial}" size="50"
+								maxlength="100" />
+								<span id="tooltipRazaoSocial">
+									<rich:toolTip for="razaoSocial"
+										followMouse="true" direction="top-right" showDelay="500"
+										styleClass="tooltip">
+										<h:outputText value="#{message.Escreva_a_Razao_Social}"></h:outputText>
+									</rich:toolTip>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.fornecedor_cadastro_form_nomeFantasia}" /></td>
+							<td><h:inputText id="nomeFantasia"
+								value="#{fornecedorBean.fornecedor.nomeFantasia}" size="50"
+								maxlength="100" />
+								<span id="tooltipNomeFantasia">
+									<rich:toolTip for="nomeFantasia"
+										followMouse="true" direction="top-right" showDelay="500"
+										styleClass="tooltip">
+										<h:outputText value="#{message.Escreva_o_Nome_Fantasia}"></h:outputText>
+									</rich:toolTip>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" class="formulario_sessao">
+							<h4><h:outputText
+								value="#{message.fornecedor_cadastro_form_contato}" /></h4>
+							</td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.fornecedor_cadastro_form_contato_nome}" /></td>
+							<td><h:inputText id="nome"
+								value="#{fornecedorBean.fornecedor.contato.nome}" size="50"
+								maxlength="100" />																
+								<span id="tooltipNome">
+									<rich:toolTip for="nome"
+										followMouse="true" direction="top-right" showDelay="500"
+										styleClass="tooltip">
+										<h:outputText value="#{message.Escreva_o_seu_nome}"></h:outputText>
+									</rich:toolTip>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.fornecedor_cadastro_form_contato_email}" /></td>
+							<td><h:inputText id="email"
+								value="#{fornecedorBean.fornecedor.contato.email}" size="50"
+								maxlength="100" />
+								<span id="tooltipEmail">
+									<rich:toolTip for="email"
+										followMouse="true" direction="top-right" showDelay="500"
+										styleClass="tooltip">
+										<h:outputText value="#{message.Escreva_o_seu_email}"></h:outputText>
+									</rich:toolTip>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.fornecedor_cadastro_form_contato_telefone}" /></td>
+							<td><h:inputText id="telefone"
+								value="#{fornecedorBean.fornecedor.contato.telefone}" size="50"
+								maxlength="13" class="PhoneMask" /> <!-- Precisa deixar a class pois sera usada pelo JQuery!!! -->
+								<span id="tooltipTelefone">
+									<rich:toolTip for="telefone"
+										followMouse="true" direction="top-right" showDelay="500"
+										styleClass="tooltip">
+										<h:outputText value="#{message.Escreva_o_numero_do_seu_telefone}"></h:outputText>
+									</rich:toolTip>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.fornecedor_cadastro_form_contato_login}" /></td>
+							<td><h:inputText id="login"
+								value="#{fornecedorBean.fornecedor.contato.login}"
+								maxlength="20" />
+								<span id="tooltipLogin">
+									<rich:toolTip for="login"
+										followMouse="true" direction="top-right" showDelay="500"
+										styleClass="tooltip">
+										<h:outputText value="#{message.Escreva_o_login}"></h:outputText>
+									</rich:toolTip>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.fornecedor_cadastro_form_contato_senha}" /></td>
+							<td><h:inputSecret id="senha"
+								value="#{fornecedorBean.fornecedor.contato.senha}"
+								maxlength="20" />
+								<span id="tooltipSenha">
+									<rich:toolTip for="senha"
+										followMouse="true" direction="top-right" showDelay="500"
+										styleClass="tooltip">
+										<h:outputText value="#{message.Escreva_a_senha}"></h:outputText>
+									</rich:toolTip>
+								</span>							
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" class="formulario_sessao">
+							<h4><h:outputText
+								value="#{message.fornecedor_cadastro_form_endereco}" /></h4>
+							</td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.fornecedor_cadastro_form_endereco_logradouro}" /></td>
+							<td><h:inputText id="logradouro"
+								value="#{fornecedorBean.fornecedor.endereco.logradouro}"
+								size="50" maxlength="100"/>
+								<span id="tooltipLogradouro">
+									<rich:toolTip for="logradouro"
+										followMouse="true" direction="top-right" showDelay="500"
+										styleClass="tooltip">
+										<h:outputText value="#{message.Escreva_o_logradouro}"></h:outputText>
+									</rich:toolTip>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.fornecedor_cadastro_form_endereco_numero}" /></td>
+							<td><h:inputText id="numero"
+								value="#{fornecedorBean.fornecedor.endereco.numero}" size="10"
+								maxlength="4" />
+								<span id="tooltipNumero">
+									<rich:toolTip for="numero"
+										followMouse="true" direction="top-right" showDelay="500"
+										styleClass="tooltip">
+										<h:outputText value="#{message.Escreva_o_numero_do_endereco}"></h:outputText>
+									</rich:toolTip>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.fornecedor_cadastro_form_endereco_complemento}" /></td>
+							<td><h:inputText id="complemento"
+								value="#{fornecedorBean.fornecedor.endereco.complemento}"
+								size="10" maxlength="100" />
+								<span id="tooltipComplemento">
+									<rich:toolTip for="complemento"
+										followMouse="true" direction="top-right" showDelay="500"
+										styleClass="tooltip">
+										<h:outputText value="#{message.Escreva_o_complemento_se_necessario}"></h:outputText>
+									</rich:toolTip>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.fornecedor_cadastro_form_endereco_bairro}" /></td>
+							<td><h:inputText id="bairro"
+								value="#{fornecedorBean.fornecedor.endereco.bairro}" size="50"
+								maxlength="100" />
+								<span id="tooltipBairro">
+									<rich:toolTip for="bairro"
+										followMouse="true" direction="top-right" showDelay="500"
+										styleClass="tooltip">
+										<h:outputText value="#{message.Escreva_o_bairro}"></h:outputText>
+									</rich:toolTip>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.fornecedor_cadastro_form_endereco_cep}" /></td>
+							<td><h:inputText id="cep"
+								value="#{fornecedorBean.fornecedor.endereco.cep}" size="20"
+								maxlength="8" class="CEPMask" /> <!-- Precisa deixar a class pois sera usada pelo JQuery!!! -->
+								<span id="tooltipCEP">
+									<rich:toolTip for="cep"
+										followMouse="true" direction="top-right" showDelay="500"
+										styleClass="tooltip">
+										<h:outputText value="#{message.Escreva_o_CEP}"></h:outputText>
+									</rich:toolTip>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.fornecedor_cadastro_form_endereco_cidade}" /></td>
+							<td><h:inputText id="cidade"
+								value="#{fornecedorBean.fornecedor.endereco.cidade}" size="50"
+								maxlength="100" />
+								<span id="tooltipCidade">
+									<rich:toolTip for="cidade"
+										followMouse="true" direction="top-right" showDelay="500"
+										styleClass="tooltip">
+										<h:outputText value="#{message.Escreva_a_cidade}"></h:outputText>
+									</rich:toolTip>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.fornecedor_cadastro_form_endereco_estado}" /></td>
+							<td><h:selectOneMenu
+								id="estado" value="#{fornecedorBean.fornecedor.endereco.estado}">
+								<f:selectItems value="#{fornecedorBean.estados}" />
+							</h:selectOneMenu>
+								<span id="tooltipEstado">
+									<rich:toolTip for="estado"
+										followMouse="true" direction="top-right" showDelay="500"
+										styleClass="tooltip">
+										<h:outputText value="#{message.Escolha_o_estado}"></h:outputText>
+									</rich:toolTip>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" align="right"><h:commandButton
+								id="btnCadastrar"
+								value="#{message.fornecedor_cadastro_form_cadastrar}"
+								action="#{fornecedorBean.cadastrar}" />
+												
+								<span id="tooltipCadastrar">
+									<rich:toolTip for="btnCadastrar"
+										followMouse="true" direction="top-right" showDelay="500"
+										styleClass="tooltip">
+										<h:outputText value="#{message.Clique_aqui_para_finalizar_o_cadastro}"></h:outputText>
+									</rich:toolTip>
+								</span>
+							</td>
+						</tr>
+					</table>
+					</center>
+				</h:outputText>
+			</h:form>
+		</f:view>
+	</ui:define>
+</ui:composition>

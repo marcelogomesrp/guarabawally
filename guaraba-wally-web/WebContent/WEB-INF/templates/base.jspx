@@ -1,0 +1,117 @@
+
+<ui:composition template="geral.jspx"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:rest="http://restfaces.dev.java.net">
+
+	<ui:define name="geralConteudo">
+	<f:view>
+		<f:loadBundle basename="messages" var="message"/>  
+		
+		<div id="container">
+		<div id="divlogo"></div>
+			
+		<h:outputText rendered="#{fornecedorBean.fornecedor.id != null}">
+				<div id="divcliente">
+					<h:form id="form_minha_conta">
+						<span><h:outputText value="#{message.BemVindo}"/></span>
+						<h:outputText value="#{fornecedorBean.fornecedor.contato.nome}" />
+						<br/>
+						<h:commandLink action="#{fornecedorBean.minhaConta}" value="#{message.MinhaConta}" />
+						<br/>
+						<h:commandLink action="#{loginBean.logoff}" value="#{message.Sair}" />
+					</h:form>
+				</div>
+		</h:outputText>				
+			<h:form id="form_linguas">
+				<div id="divlinguas">
+					<h:outputText value="#{message.MudarLingua}"/>
+
+					<h:commandLink id="linguaPtBrBtn" action="#{linguaBean.portugues}">
+						<img src="#{facesContext.externalContext.request.contextPath}/img/bandeiras/bandeira_portugues.gif" style="border: 0px;" />						
+					</h:commandLink>
+					<h:commandLink id="linguaEnUSBtn" action="#{linguaBean.ingles}">						
+						<img src="#{facesContext.externalContext.request.contextPath}/img/bandeiras/bandeira_ingles.gif" style="border: 0px;" />
+					</h:commandLink>	
+					<h:commandLink id="linguaEsESBtn" action="#{linguaBean.espanhol}">
+						<img src="#{facesContext.externalContext.request.contextPath}/img/bandeiras/bandeira_espanhol.gif" style="border: 0px;" />
+					</h:commandLink>				
+					
+					<div id="linguaPtBrDiv">
+						<rich:toolTip for="linguaPtBrBtn" followMouse="true" direction="top-right" showDelay="500" styleClass="tooltip">
+							<h:outputText value="#{message.Portugues}" />
+						</rich:toolTip>
+					</div>
+					<div id="linguaEnUSDiv">
+						<rich:toolTip for="linguaEnUSBtn" followMouse="true" direction="top-right" showDelay="500" styleClass="tooltip">
+							<h:outputText value="#{message.Ingles}" />
+						</rich:toolTip>
+					</div>
+					<div id="linguaEsESDiv">
+						<rich:toolTip for="linguaEsESBtn" followMouse="true" direction="top-right" showDelay="500" styleClass="tooltip">
+							<h:outputText value="#{message.Espanhol}" />
+					</rich:toolTip>
+					</div>
+				</div>
+			</h:form>
+			
+			
+			
+			<div id="linha_acima_menu"></div>
+			<div id="menu">			
+				<div id="itens_menu">
+					<h:form id="form_menu">
+						<ul id="menu">
+							<li>
+						  		<h:commandLink action="#{indexBean.principal}" value="#{message.menu_principal}" />
+						 	</li>
+						 	<h:outputText rendered="#{fornecedorBean.fornecedor.id != null}">
+							<li>
+						  		<h:commandLink action="#{indexBean.produtoListarPorFornecedor}" value="#{message.menu_produtos}" />
+						  		<ul>
+						  			<li><h:commandLink action="#{indexBean.produtoListarPorFornecedor}" value="#{message.menu_produto_listar}" /></li>
+						  			<li><h:commandLink action="#{indexBean.produtoCadastrar}" value="#{message.menu_produto_cadastrar}" /></li>
+						  		</ul>
+						 	</li>
+						 	</h:outputText>
+						 	<h:outputText rendered="#{fornecedorBean.fornecedor.id != null}">
+								<li><h:commandLink action="#{indexBean.anuncioListar}" value="#{message.menu_anuncios}" /></li>
+							</h:outputText>
+							<h:outputText rendered="#{fornecedorBean.fornecedor.id == null}">
+								<li><h:commandLink action="#{indexBean.logar}" value="#{message.menu_logar}" /></li>
+							</h:outputText>
+							<h:outputText rendered="#{fornecedorBean.fornecedor.id == null}">
+								<li><h:commandLink action="#{indexBean.cadastrarse}" value="#{message.menu_cadastrarse}" /></li>
+							</h:outputText>
+							<li><h:commandLink action="#{indexBean.sobre}" value="#{message.menu_sobre}" /></li>
+							<li><h:commandLink action="#{indexBean.faleConosco}" value="#{message.menu_fale_conosco}" /></li>
+						</ul>		
+					</h:form>
+				</div>
+			</div>
+			<div id="linha_abaixo_menu"></div>
+			<div id="content">
+				<div id="navegacao"><ui:insert name="navegacao"/> </div>
+				<div id="titulo"><h1><ui:insert name="titulo" /></h1></div>
+				<div id="sub-titulo"><h2><ui:insert name="sub-titulo" /></h2></div>
+				<center>
+				<h:messages id="base_message" 
+						errorClass="msg error" 
+						fatalClass="msg fatal" 
+						infoClass="msg info" 
+						warnClass="msg warn"
+						showDetail="true" 
+						showSummary="true" 
+						tooltip="true"/>
+				</center>
+				<ui:insert name="conteudo" />
+			</div>
+			<div id="bottom"><h:outputText value="#{message.Footer}" /></div>
+		</div>
+		</f:view>		
+	</ui:define>
+</ui:composition>

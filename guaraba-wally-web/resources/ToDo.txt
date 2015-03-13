@@ -1,0 +1,18 @@
+-> VERIFICAR A PARTE DO ANDROID!!!
+
+
+->RF10 - Modificar o cadastro de produto
+A sa�da deve ter uma mensagem de confirma��o
+
+
+
+
+->RF12 - Cadastrar an�ncio
+ 
+ - Validar a data de inicio (deve ser maior que a data atual)
+ - Validar a data de fim (deve ser maior que a data de in�cio)
+ - A sa�da deve ter uma mensagem informando que o cadastro foi efetuado com sucesso.
+ 
+
+-> Perguntar se deseja excluir ANTES (nas listas de produto e an�ncio (bot�o x))
+

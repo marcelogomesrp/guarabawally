@@ -1,0 +1,16 @@
+.odd-row {
+	background-color: #FFFFFF;
+}
+.even-row {
+	background-color: #DDDDDD;
+}
+.active-row {
+	background-color: orange;
+}
+      
+.dataTableHeader {  
+	color: white;  
+	background-color: #32547F;
+	text-align: center;
+	font-weight: bold;  
+}

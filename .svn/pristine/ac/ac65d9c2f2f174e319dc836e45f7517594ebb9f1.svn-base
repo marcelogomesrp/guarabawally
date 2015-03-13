@@ -1,0 +1,205 @@
+<ui:composition template="/WEB-INF/templates/base.jspx"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:rest="http://restfaces.dev.java.net"
+	xmlns:m="http://code.google.com/p/gmaps4jsf">
+
+	<ui:define name="title">
+		<f:view>
+			<f:loadBundle basename="messages" var="message" />
+			<h:outputText value="Visualizar Anuncio" />
+		</f:view>
+	</ui:define>
+
+	<ui:define name="navegacao">
+		<f:view>
+			<h:form id="form_navegacao">
+				<h:commandLink value="#{message.navegacao_home}"
+					action="#{indexBean.principal}" />
+				<span> </span>
+				<h:outputText value="#{message.navegacao_separador}" />
+				<span> </span>
+				<h:outputText value="#{message.Anuncio}" />
+				<span> </span>
+				<h:outputText value="#{message.navegacao_separador}" />
+				<span> </span>
+				<h:outputText value="Visualizar" />
+			</h:form>
+		</f:view>
+	</ui:define>
+
+	<ui:define name="titulo">
+		<f:view>
+			<h:outputText value="Visualizar Anuncio" />
+		</f:view>
+	</ui:define>
+
+	<ui:define name="conteudo">
+
+		<h:outputText rendered="#{fornecedorBean.fornecedor != null}">
+			<f:view>
+				<h:form id="form_anuncio_visualiza">
+
+					<center>
+					<table class="formulario" border="0" cellpadding="10"
+						cellspacing="10" width="70%">
+						<tr>
+							<td colspan="2" class="formulario_sessao">
+							<h4><h:outputText value="Anuncio" /></h4>
+							</td>
+						</tr>
+						<tr>
+							<td width="90" class="formulario_campo"><h:outputText
+								value="Produto/(ID) : " /></td>
+							<td><h:outputText
+								value="#{anuncioBean.anuncio.produto.nome}"></h:outputText> /(<h:outputText
+								value="#{anuncioBean.anuncio.produto.id}"></h:outputText>)</td>
+						</tr>
+						<tr>
+							<td width="90" class="formulario_campo"><h:outputText
+								value="#{message.anuncio_cadastro_form_inicio_vigencia} : " /></td>
+							<td><h:outputText
+								value="#{anuncioBean.anuncio.inicioVigencia}"></h:outputText></td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.anuncio_cadastro_form_fim_vigencia} : " /></td>
+							<td><h:outputText value="#{anuncioBean.anuncio.fimVigencia}"></h:outputText>
+							</td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.anuncio_cadastro_form_valor} : " /></td>
+							<td><h:outputText value="#{anuncioBean.anuncio.valor}"></h:outputText>
+							</td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.anuncio_cadastro_form_ativo} : " /></td>
+							<td><h:selectBooleanCheckbox
+								value="#{anuncioBean.anuncio.ativo}" disabled="true"></h:selectBooleanCheckbox></td>
+						</tr>
+
+						<tr>
+							<td colspan="2" class="formulario_sessao">
+							<h4><h:outputText
+								value="#{message.anuncio_cadastro_form_localizacao}" /></h4>
+							</td>
+						</tr>
+
+						<tr>
+							<td colspan="2"><rich:panel header="Google Map">
+								<center><h:outputText value="Latitude : "
+									id="txtLatitude" /> <h:outputText
+									value="#{anuncioBean.anuncio.latitude}" id="txtInputLatitude" />
+								<br />
+								<h:outputText value="Longitude : " id="txtLongitude" /> <h:outputText
+									value="#{anuncioBean.anuncio.longitude}" id="txtInputLongitude" />
+								<table style="width: 500px;">
+									<tr>
+										<td style="width: 100px;"><h:outputText value="Map Type:" /></td>
+										<td style="width: 400px;"><h:panelGroup>
+											<a href="javascript: void 0"
+												onclick="map.setMapType(G_NORMAL_MAP);"><h:outputText
+												value="#{message.gmap_normal}"></h:outputText></a>
+											<a href="javascript: void 0"
+												onclick="map.setMapType(G_SATELLITE_MAP);"><h:outputText
+												value="#{message.gmap_satelite}"></h:outputText></a>
+											<a href="javascript: void 0"
+												onclick="map.setMapType(G_HYBRID_MAP);"><h:outputText
+												value="#{message.gmap_hibrido}"></h:outputText></a>
+											<br />
+										</h:panelGroup></td>
+									</tr>
+									<tr>
+										<td style="width: 100px;"><h:outputText value="Zoom:" /></td>
+										<td style="width: 400px;"><rich:inputNumberSlider
+											width="400px" id="zoom" showInput="false" minValue="1"
+											maxValue="18" onchange="map.setZoom(this.value)"
+											value="#{gmapBean.zoom}" /></td>
+									</tr>
+								</table>
+
+								<rich:gmap gmapVar="map" style="width:500px; height:500px;"
+									gmapKey="#{gmapBean.gmap_key}" zoom="#{gmapBean.zoom}"
+									id="gmap" mapType="G_NORMAL_MAP"
+									lat="#{anuncioBean.anuncio.latitude}"
+									lng="#{anuncioBean.anuncio.longitude}"
+									showGScaleControl="false" showGLargeMapControl="false"
+									showGMapTypeControl="false" oninit="InitEventHandler()" /></center>
+							</rich:panel></td>
+						</tr>
+
+						<tr>
+							<td colspan="2" align="right"><h:commandButton
+								id="btnEditar" value="Editar" action="#{anuncioBean.cadastrar}" /></td>
+						</tr>
+					</table>
+					</center>
+
+					<script>
+	function InitEventHandler() {
+		if (GBrowserIsCompatible()) {
+			var point = new GLatLng("#{anuncioBean.anuncio.latitude}",
+					"#{anuncioBean.anuncio.longitude}");
+
+			var guarabaIcon = new GIcon(G_DEFAULT_ICON);
+			guarabaIcon.image = "#{facesContext.externalContext.request.contextPath}/img/icones/guaraba_wally_30.gif";
+
+			markerOptions = {
+				icon : guarabaIcon
+			};
+
+			marker = new GMarker(point, markerOptions);
+
+			map.addOverlay(marker);
+
+			var latlng = marker.getLatLng();
+
+			geocoder = new GClientGeocoder();
+			geocoder.getLocations(latlng, showAddress);
+
+			GEvent.addListener(marker, "click", function() {
+				geocoder.getLocations(latlng, showAddress);
+			});
+		}
+	}
+
+	function showAddress(response) {
+		place = response.Placemark[0];
+
+		marker.openInfoWindowHtml('<b>orig latlng: </b>' + response.name
+				+ '<br/>' + '<b>Latitude: </b>' + place.Point.coordinates[0]
+				+ '<br/>' + '<b>Longitude: </b>' + place.Point.coordinates[1]
+				+ '<br/>' + '<b>Status Code: </b>' + response.Status.code
+				+ '<br/>' + '<b>Status Request: </b>' + response.Status.request
+				+ '<br/>' + '<b>Endereco: </b>' + place.address + '<br/>'
+				+ '<b>Precisao: </b>' + place.AddressDetails.Accuracy + '<br/>'
+				+ '<b>Codigo do pais: </b>'
+				+ place.AddressDetails.Country.CountryNameCode);
+	}
+</script>
+					<script
+						src="http://gmaps-utility-library.googlecode.com/svn/trunk/markermanager/release/src/markermanager.js"></script>
+
+				</h:form>
+			</f:view>
+		</h:outputText>
+
+		<h:outputText rendered="#{fornecedorBean.fornecedor == null}">
+			<f:view>
+				<h:form id="form_anuncio_logar">
+					<h:outputText value="#{message.NecessarioEstarLogado}"></h:outputText>
+					<span> </span>
+					<h:commandLink id="lnkLogin" action="#{produtoBean.efetuarLogin}"
+						value="#{message.CliqueAquiParaEfetuarOLogin}"></h:commandLink>
+				</h:form>
+			</f:view>
+		</h:outputText>
+
+	</ui:define>
+</ui:composition>

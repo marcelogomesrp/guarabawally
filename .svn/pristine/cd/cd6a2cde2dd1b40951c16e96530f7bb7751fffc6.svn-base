@@ -1,0 +1,130 @@
+<ui:composition template="/WEB-INF/templates/base.jspx"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:rest="http://restfaces.dev.java.net">
+
+	<ui:define name="title">
+		<f:view>
+			<f:loadBundle basename="messages" var="message" />
+			<h:outputText value="#{message.fornecedor_cadastro_title}" />
+		</f:view>
+	</ui:define>
+
+	<ui:define name="navegacao">
+		<f:view>
+			<h:form id="form_navegacao">
+				<h:commandLink value="#{message.navegacao_home}"
+					action="#{indexBean.principal}" />
+				<span> </span>
+				<h:outputText value="#{message.navegacao_separador}" />
+				<span> </span>
+				<h:outputText value="#{message.navegacao_cadastrese}" />
+			</h:form>
+		</f:view>
+	</ui:define>
+
+	<ui:define name="titulo">
+		<f:view>
+			<h:outputText value="#{message.fornecedor_cadastro_titulo}" />
+		</f:view>
+	</ui:define>
+
+	<ui:define name="conteudo">
+
+		<h:outputText rendered="#{fornecedorBean.fornecedor.id != null}">
+			<f:view>
+				<h:form id="form_fornecedor_cadastro">
+					<center>
+					<table class="formulario" border="0" cellpadding="10"
+						cellspacing="10" width="70%">
+						<tr>
+							<td colspan="2" class="formulario_sessao">
+							<h4><h:outputText
+								value="#{message.fornecedor_cadastro_form_contato}" /></h4>
+							</td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.fornecedor_cadastro_form_contato_nome}" /></td>
+							<td><h:inputText id="nome"
+								value="#{fornecedorBean.fornecedor.contato.nome}" size="50"
+								maxlength="100" />
+								
+								<span id="tooltipNome">
+									<rich:toolTip for="nome"
+										followMouse="true" direction="top-right" showDelay="500"
+										styleClass="tooltip">
+										<h:outputText value="#{message.Escreva_o_seu_nome}"></h:outputText>
+									</rich:toolTip>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.fornecedor_cadastro_form_contato_email}" /></td>
+							<td><h:inputText id="email"
+								value="#{fornecedorBean.fornecedor.contato.email}" size="50"
+								maxlength="100" />
+												
+								<span id="tooltipEmail">
+									<rich:toolTip for="email"
+										followMouse="true" direction="top-right" showDelay="500"
+										styleClass="tooltip">
+										<h:outputText value="#{message.Escreva_o_seu_email}"></h:outputText>
+									</rich:toolTip>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.fornecedor_cadastro_form_contato_telefone}" /></td>
+							<td><h:inputText id="telefone"
+								value="#{fornecedorBean.fornecedor.contato.telefone}" size="50"
+								maxlength="13" class="PhoneMask" /> <!-- Precisa da class pra usar no jquery -->
+								
+								<span id="tooltipTelefone">
+									<rich:toolTip for="telefone"
+										followMouse="true" direction="top-right" showDelay="500"
+										styleClass="tooltip">
+										<h:outputText value="#{message.Escreva_o_seu_telefone}"></h:outputText>
+									</rich:toolTip>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" align="right"><h:commandButton
+								id="btnSalvar" value="Salvar" action="#{fornecedorBean.salvar}" />
+								
+								<span id="tooltipSalvar">
+									<rich:toolTip for="btnSalvar"
+										followMouse="true" direction="top-right" showDelay="500"
+										styleClass="tooltip">
+										<h:outputText value="#{message.Clique_aqui_para_salvar_as_modificacoes}"></h:outputText>
+									</rich:toolTip>
+								</span>
+							</td>
+						</tr>
+					</table>
+					</center>
+
+				</h:form>
+			</f:view>
+		</h:outputText>
+
+		<h:outputText rendered="#{fornecedorBean.fornecedor == null}">
+			<f:view>
+				<h:form id="form_anuncio_logar">
+					<h:outputText value="#{message.NecessarioEstarLogado}"></h:outputText>
+					<span> </span>
+					<h:commandLink id="lnkLogin" action="#{produtoBean.efetuarLogin}"
+						value="#{message.CliqueAquiParaEfetuarOLogin}"></h:commandLink>
+				</h:form>
+			</f:view>
+		</h:outputText>
+
+	</ui:define>
+</ui:composition>

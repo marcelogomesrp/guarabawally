@@ -1,0 +1,107 @@
+<ui:composition template="/WEB-INF/templates/base.jspx"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:rest="http://restfaces.dev.java.net">
+
+	<ui:define name="title">
+		<f:view>
+			<f:loadBundle basename="messages" var="message" />
+			<h:outputText value="#{message.produto_cadastro_title}" />
+		</f:view>
+	</ui:define>
+
+	<ui:define name="navegacao">
+		<f:view>
+			<h:form id="form_navegacao">
+				<h:commandLink value="#{message.navegacao_home}"
+					action="#{indexBean.principal}" />
+				<span> </span>
+				<h:outputText value="#{message.navegacao_separador}" />
+				<span> </span>
+				<h:outputText value="#{message.Produto}" />
+				<span> </span>
+				<h:outputText value="#{message.navegacao_separador}" />
+				<span> </span>
+				<h:outputText value="#{message.Cadastro}" />
+			</h:form>
+		</f:view>
+	</ui:define>
+
+	<ui:define name="titulo">
+		<f:view>
+			<h:outputText value="#{message.produto_cadastro_titulo}" />
+		</f:view>
+	</ui:define>
+
+	<ui:define name="conteudo">
+
+		<h:outputText rendered="#{fornecedorBean.fornecedor != null}">
+			<f:view>
+				<h:form id="form_anuncio_cadastro">
+					<center>
+					<table class="formulario" border="0" cellpadding="10"
+						cellspacing="10" width="70%">
+						<tr>
+							<td colspan="2" class="formulario_sessao">
+							<h4><h:outputText
+								value="#{message.produto_cadastro_form_cadastrar}" /></h4>
+							</td>
+						</tr>
+						<tr>
+							<td width="90" class="formulario_campo"><h:outputText
+								value="#{message.produto_cadastro_form_nome}" /></td>
+							<td><h:inputText id="nome"
+								value="#{produtoBean.produto.nome}" size="30" maxlength="255"
+								class="js_hoverLauncher" />
+							<div class="js_hoverData">#{message.Escreva_o_nome_para_o_produto_a_ser_cadastrado}</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.produto_cadastro_form_descricao}" /></td>
+							<td><h:inputText id="descricao"
+								value="#{produtoBean.produto.descricao}" size="50"
+								maxlength="255" class="js_hoverLauncher" />
+							<div class="js_hoverData">#{message.Escreva_a_descricao_para_o_produto_a_ser_cadastrado}</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.produto_cadastro_form_categoria}" /></td>
+							<td><span class="js_hoverLauncher"> <h:selectOneMenu
+								id="categoria" value="#{produtoBean.produto.categoria.id}"
+								class="js_hoverLauncher">
+								<f:selectItems value="#{categoriaBean.categorias}" />
+							</h:selectOneMenu> </span>
+							<div class="js_hoverData">#{message.Escolha_a_categoria_na_qual_o_produto_a_sera_cadastrado}</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" align="right"><h:commandButton
+								id="btnCadastrar"
+								value="#{message.produto_cadastro_form_cadastrar}"
+								action="#{produtoBean.cadastrar}" /></td>
+						</tr>
+					</table>
+					</center>
+				</h:form>
+			</f:view>
+		</h:outputText>
+
+		<h:outputText rendered="#{fornecedorBean.fornecedor == null}">
+			<f:view>
+				<h:form id="form_anuncio_logar">
+					<h:outputText value="#{message.NecessarioEstarLogado}"></h:outputText>
+					<span> </span>
+					<h:commandLink id="lnkLogin" action="#{produtoBean.efetuarLogin}"
+						value="#{message.CliqueAquiParaEfetuarOLogin}"></h:commandLink>
+				</h:form>
+			</f:view>
+		</h:outputText>
+		
+	</ui:define>
+</ui:composition>

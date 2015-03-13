@@ -1,0 +1,220 @@
+
+#titulo
+	Titulo											= Guaraba Wally
+#/titulo
+
+#body
+	MudarLingua										= Mudar a lingua: 
+	SejaBemVindo									= Seja bem vindo!
+	BemVindo										= Bem vindo 
+	MinhaConta										= Minha Conta
+	Sair											= Sair
+	Cadastro										= Cadastro
+	Edicao											= Edição
+	
+	Produto											= Produto
+	produto											= produto
+	Produtos										= Produtos
+	produtos										= produtos
+	
+	Anuncio											= Anúncio
+	anuncio											= anúncio
+	Anuncios										= Anúncios
+	anuncios										= anúncios
+	
+	ID												= ID
+	id												= id
+	
+	Portugues										= Português
+	Ingles											= Inglês
+	Espanhol										= Espanhol
+	
+	Procurar										= Procurar
+	NecessarioEstarLogado							= É necessário estar logado para acessar essa área.
+	CliqueAquiParaEfetuarOLogin						= Clique aqui para efetuar o login
+#/body
+
+#menu
+	menu_principal									= Principal
+	menu_logar										= Logar
+	menu_cadastrarse								= Cadastrar-se
+	menu_sobre										= Sobre
+	menu_fale_conosco								= Fale conosco
+	menu_produtos									= Produtos
+	menu_anuncios									= Anúncios
+	menu_produto_cadastrar							= Cadastrar Produto
+	menu_produto_listar								= Listar Produtos
+	menu_anuncio_cadastrar							= Cadastrar Anúncio
+	menu_anuncio_listar								= Listar Anúncios
+#/menu
+
+#bottom
+	Footer											= Wally - um produto Guarabá! | Todos os direitos liberados...
+#/bottom
+
+#navegacao
+	navegacao_home									= Home
+	navegacao_separador								= > 
+	navegacao_cadastrese							= Cadastre-se
+#/navegacao
+
+#fornecedor_cadastro
+	fornecedor_cadastro_title						= Cadastro de Novo Fornecedor
+	fornecedor_cadastro_titulo						= Cadastre-se no Guarabá Wally
+	fornecedor_cadastro_sub_titulo					= 				
+	
+	fornecedor_cadastro_form_fornecedor				= Fornecedor
+	fornecedor_cadastro_form_cnpj					= CNPJ
+	fornecedor_cadastro_form_nomeFantasia			= Nome Fantasia
+	fornecedor_cadastro_form_razaoSocial			= Razao Social
+	fornecedor_cadastro_form_contato				= Contato
+	fornecedor_cadastro_form_contato_nome			= Nome
+	fornecedor_cadastro_form_contato_email			= Email
+	fornecedor_cadastro_form_contato_telefone		= Telefone
+	fornecedor_cadastro_form_contato_login			= Login
+	fornecedor_cadastro_form_contato_senha			= Senha
+	fornecedor_cadastro_form_endereco				= Endereço
+	fornecedor_cadastro_form_endereco_logradouro	= Logradouro
+	fornecedor_cadastro_form_endereco_numero		= Número
+	fornecedor_cadastro_form_endereco_complemento	= Complemento
+	fornecedor_cadastro_form_endereco_bairro		= Bairro
+	fornecedor_cadastro_form_endereco_cep			= CEP
+	fornecedor_cadastro_form_endereco_cidade		= Cidade
+	fornecedor_cadastro_form_endereco_estado		= Estado
+	fornecedor_cadastro_form_cadastrar				= Cadastrar
+#/fornecedor_cadastro
+
+#produto_cadastro
+	produto_cadastro_title							= Cadastro de Novo Produto
+	produto_cadastro_titulo							= Cadastro de Novo Produto
+	produto_cadastro_sub_titulo						= 		
+	
+	produto_cadastro_form_nome						= Nome
+	produto_cadastro_form_descricao					= Descricao
+	produto_cadastro_form_categoria					= Categoria
+	produto_cadastro_form_cadastrar					= Cadastrar
+#/produto_cadastro
+
+#produto_listar	
+	produto_listar_title							= Lista de Produtos
+	produto_listar_titulo							= Lista de Produtos
+	produto_listar_sub_titulo						= 		
+	
+	produto_listar_form_nome						= Nome
+	produto_listar_form_descricao					= Descricao
+	produto_listar_form_categoria					= Categoria
+	produto_listar_nenhum							= Nenhum produto cadastrado
+#/produto_listar
+
+#anuncio_cadastro
+anuncio_cadastro_title=Cadastro de Novo Anúncio
+	anuncio_cadastro_titulo							= Cadastro de Novo Anúncio
+	anuncio_cadastro_sub_titulo						= 		
+	
+	anuncio_cadastro_form_inicio_vigencia			= Inicio de Vigência
+	anuncio_cadastro_form_fim_vigencia				= Fim de Vigência
+	anuncio_cadastro_form_valor						= Valor (R$)
+	anuncio_cadastro_form_ativo						= Ativo
+	anuncio_cadastro_form_localizacao				= Localização
+	anuncio_cadastro_form_latitude					= Latitude
+	anuncio_cadastro_form_longitude					= Longitude
+	anuncio_cadastro_form_cadastrar					= Cadastrar
+	
+	gmap_normal										= Normal
+	gmap_hibrido									= Híbrido
+	gmap_satelite									= Satélite
+	gmap_erro										= Erro ao processar a localização escolhida. Código:
+#/anuncio_cadastro
+
+#anuncio_editar
+	anuncio_editar_title							= Editar Anúncio
+	anuncio_editar_titulo							= Editar Anúncio
+	anuncio_editar_sub_titulo						= 		
+	
+	anuncio_editar_form_inicio_vigencia				= Inicio de Vigência
+	anuncio_editar_form_fim_vigencia				= Fim de Vigência
+	anuncio_editar_form_valor						= Valor (R$)
+	anuncio_editar_form_ativo						= Ativo
+	anuncio_editar_form_localizacao					= Localização
+	anuncio_editar_form_latitude					= Latitude
+	anuncio_editar_form_longitude					= Longitude
+	anuncio_editar_form_atualizar					= Atualizar
+#/anuncio_editar
+
+#produto_listar	
+	anuncio_listar_title							= Lista de Anúncios
+	anuncio_listar_titulo							= Lista de Anúncios
+	anuncio_listar_sub_titulo						= 
+	anuncio_listar_nenhum							= Nenhum anúncio cadastrado
+#/produto_listar
+
+#mascaras
+	formato_telefone								= Formato: (11)1111-1111
+	formato_data									= Formato: MM/DD/AAAA
+	formato_CPF										= Somente números
+#/mascaras
+
+#sobre
+	sobre01 = Descrição Geral do Sistema
+	sobre02 = Perspectiva do Sistema
+	sobre03 = O sistema é dividido em duas partes, sendo uma destinada aos clientes e outra aos fornecedores.
+	sobre04 = A parte dos clientes deve estar disponível para o uso em um dispositivo móvel comunicando com o servidor pela internet, sendo que as preferências do cliente devem ser salvas no dispositivo móvel.
+	sobre05 = A parte destinada aos fornecedores deve estar disponível em uma interface web.
+	sobre06 = Funções do Sistema
+	sobre07 = O sistema Wally permite localizar produtos e seus respectivos pontos de vendas, podendo visualizar a localização (endereço) dos mesmos através de um dispositivo móvel.
+	sobre08 = Para realizar uma pesquisa, o cliente deve informar uma ou mais características dos produtos que está procurando e, opcionalmente, ele pode informar um valor máximo a ser pesquisado.
+	sobre09 = Uma lista com as categorias que possui produtos que satisfaz os critérios de busca do usuário será exibida no dispositivo móvel. Na lista, será possível navegar pelos resultados, entrar nas categorias e visualizar os produtos e seus pontos de venda (nome, endereço e valor).
+	sobre10 = Para anunciar um produto, o fornecedor deve realizar um cadastro na página do Guarabá Wally e em seguida poderá cadastrar os seus produtos e seus anúncios.
+	sobre11 = Características dos usuários
+	sobre12 = - Cliente: Este usuário deve ter um conhecimento básico sobre como usar um dispositivo móvel.
+	sobre13 = - Fornecedor: Este usuário deve ter um conhecimento básico de Web e sobre seus produtos que deseja cadastrar e anunciar.
+	sobre14 = Restrições gerais do sistema
+	sobre15 = Não será possível efetuar a compra ou a reserva de qualquer produto anunciado.
+	sobre16 = Não será possível verificar a veracidade dos produtos anunciados, sendo os anúncios de responsabilidade dos seus anunciantes.
+	sobre17 = Não será possível adicionar, modificar ou excluir uma categoria. Todas elas já estarão definidas na instalação do sistema.
+	sobre18 = A senha, utilizada para logar no sistema, será fornecida pelo fornecedor no momento de seu cadastro.
+#/sobre
+
+#poups
+
+Escreva_o_numero_do_CNPJ			=	Escreva o número do CNPJ
+Escreva_a_Razao_Social				=	Escreva a Razão Social
+Escreva_o_Nome_Fantasia				=	Escreva o Nome Fantásia
+Escreva_o_seu_nome					=	Escreva o seu nome
+Escreva_o_seu_e-mail				=	Escreva o seu e-mail
+Escreva_o_numero_do_seu_telefone	=	Escreva o número do seu telefone
+Escreva_o_login						=	Escreva o login
+Escreva_a_senha						=	Escreva a senha
+Escreva_o_logradouro				=	Escreva o logradouro
+Escreva_o_numero_do_endereco		=	Escreva o número do endereço
+Escreva_o_complemento_se_necessario	=	Escreva o complemento se necessário
+Escreva_o_bairro					=	Escreva o bairro
+Escreva_o_CEP						=	Escreva o CEP
+Escreva_a_cidade					=	Escreva a cidade
+Escolha_o_estado					=	Escolha o estado
+Clique_aqui_para_finalizar_o_cadastro = Clique aqui para finalizar o cadastro
+Escreva_o_seu_nome					=	Escreva o seu nome
+Escreva_o_seu_telefone				=	Escreva o seu telefone
+Clique_aqui_para_salvar_as_modificacoes = Clique aqui para salvar as modificações
+Escreva_o_logradouro				=	Escreva o logradouro
+Escreva_o_numero					=	Escreva o número
+Escreva_o_complemento_se_necessario =	Escreva o complemento se necessário
+Escreva_o_bairro					=	Escreva o bairro
+Escreva_o_CEP						=	Escreva o CEP
+Escreva_a_cidade					=	Escreva a cidade
+Escolha_o_estado					=	Escolha o estado
+Clique_aqui_para_salvar_as_alteracoes	=	Clique aqui para salvar as alterações
+Escreva_a_nova_senha				=	Escreva a nova senha
+Clique_aqui_para_salvar_a_nova_senha	=	Clique aqui para salvar a nova senha
+Escreva_o_nome_para_o_produto_a_ser_cadastrado	=	Escreva o nome para o produto a ser cadastrado
+Escreva_a_descricao_para_o_produto_a_ser_cadastrado	=	Escreva a descricao para o produto a ser cadastrado
+Escolha_a_categoria_na_qual_o_produto_a_sera_cadastrado	=	Escolha a categoria na qual o produto a sera cadastrado
+Visualizar_produto				=	Visualizar produto
+Editar_produto					=	Editar produto
+Excluir_produto					=	Excluir produto
+Adicionar_anuncio_para_este_produto	=	Adicionar anúncio para este produto
+Escreva_o_seu_nome					=	Escreva o seu nome
+Escreva_o_seu_email				=	Escreva o seu e-mail
+Escreva_sua_mensagem				=	Escreva sua mensagem
+
+#/poups

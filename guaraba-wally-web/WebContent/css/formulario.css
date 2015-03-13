@@ -1,0 +1,39 @@
+.formulario {
+
+}
+
+.formulario input[type=text] {
+
+	font-family: arial;
+	font-size: 12px;
+	border: 1px solid #cccccc;
+}
+
+.formulario input[type=text]:hover {
+
+	font-family: arial;
+	font-size: 12px;
+	border: 1px solid #aaaaaa;
+}
+
+.formulario input[type=password] {
+
+	font-family: arial;
+	font-size: 12px;
+	border: 1px solid #cccccc;
+}
+
+.formulario_campo {
+
+	text-align: right;	
+}
+
+.formulario_sessao {
+	
+	border-bottom: 1px solid #cccccc;
+}
+
+.formulario_sessao H2 {
+
+
+}

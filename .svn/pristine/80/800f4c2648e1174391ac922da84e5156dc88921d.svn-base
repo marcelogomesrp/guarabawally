@@ -1,0 +1,260 @@
+<ui:composition template="/WEB-INF/templates/base.jspx"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:rest="http://restfaces.dev.java.net">
+
+	<ui:define name="title">
+		<f:view>
+			<f:loadBundle basename="messages" var="message" />
+			<h:outputText value="#{message.anuncio_cadastro_title}" />
+		</f:view>
+	</ui:define>
+
+	<ui:define name="navegacao">
+		<f:view>
+			<h:form id="form_navegacao">
+				<h:commandLink value="#{message.navegacao_home}"
+					action="#{indexBean.principal}" />
+				<span> </span>
+				<h:outputText value="#{message.navegacao_separador}" />
+				<span> </span>
+				<h:outputText value="#{message.Anuncio}" />
+				<span> </span>
+				<h:outputText value="#{message.navegacao_separador}" />
+				<span> </span>
+				<h:outputText value="#{message.Cadastro}" />
+			</h:form>
+		</f:view>
+	</ui:define>
+
+	<ui:define name="titulo">
+		<f:view>
+			<h:outputText value="#{message.anuncio_cadastro_titulo}" />
+		</f:view>
+	</ui:define>
+
+	<ui:define name="conteudo">
+		<h:outputText rendered="#{fornecedorBean.fornecedor != null}">
+			<f:view>
+				<h:form id="form_anuncio_cadastro">
+
+					<center>
+					<table class="formulario" border="0" cellpadding="10"
+						cellspacing="10" width="70%">
+						<tr>
+							<td colspan="2" class="formulario_sessao">
+							<h4><h:outputText
+								value="#{message.anuncio_cadastro_form_cadastrar}" /></h4>
+							</td>
+						</tr>
+						<tr>
+							<td width="90" class="formulario_campo"><h:outputText
+								value="Produto/(ID) : " /></td>
+							<td><h:outputText
+								value="#{anuncioBean.produtoBeanAccessor.produto.nome}"></h:outputText>
+							/(<h:outputText
+								value="#{anuncioBean.produtoBeanAccessor.produto.id}"></h:outputText>)
+							</td>
+						</tr>
+						<tr>
+							<td width="90" class="formulario_campo"><h:outputText
+								value="#{message.anuncio_cadastro_form_inicio_vigencia}" /></td>
+							<td><a4j:outputPanel id="calendarInicio" layout="block">
+								<rich:calendar value="#{anuncioBean.anuncio.inicioVigencia}"
+									locale="pt/BR" popup="true" datePattern="dd/M/yy hh:mm a"
+									showApplyButton="false" cellWidth="24px" cellHeight="22px"
+									style="width:200px" />
+							</a4j:outputPanel></td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.anuncio_cadastro_form_fim_vigencia}" /></td>
+							<td><a4j:outputPanel id="calendarFim" layout="block">
+								<rich:calendar value="#{anuncioBean.anuncio.fimVigencia}"
+									locale="pt/BR" popup="true" datePattern="dd/M/yy hh:mm a"
+									showApplyButton="false" cellWidth="24px" cellHeight="22px"
+									style="width:200px" />
+							</a4j:outputPanel></td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.anuncio_cadastro_form_valor}" /></td>
+							<td><h:inputText id="valor"
+								onclick="campoMoeda.onClick(this);"
+								onmouseup="campoMoeda.onMouseUp(this);"
+								onkeydown="campoMoeda.onKeyDown(this, event);" style="text-align: right;"
+								value="#{anuncioBean.anuncio.valor}" size="50" maxlength="10" /></td>
+						</tr>
+						<tr>
+							<td class="formulario_campo"><h:outputText
+								value="#{message.anuncio_cadastro_form_ativo}" /></td>
+							<td><h:selectBooleanCheckbox
+								value="#{anuncioBean.anuncio.ativo}"></h:selectBooleanCheckbox></td>
+						</tr>
+
+						<tr>
+							<td colspan="2" class="formulario_sessao">
+							<h4><h:outputText
+								value="#{message.anuncio_cadastro_form_localizacao}" /></h4>
+							</td>
+						</tr>
+
+						<tr>
+							<td colspan="2"><rich:panel header="Google Maps">
+								<center><h:inputText id="txtEnderecoAProcurar"
+									value="#{gmapBean.address}" size="50" maxlength="100"></h:inputText>
+								<span> </span> <input type="button" id="btnProcurarEndereco"
+									value="#{message.Procurar}" class="searchAddress"
+									onclick="javascript:searchAddress();" /><br />
+								<h:outputText value="Latitude: " id="txtLatitude" /> <h:inputText
+									value="#{anuncioBean.anuncio.latitude}" id="txtInputLatitude" />
+								<br />
+								<h:outputText value="Longitude: " id="txtLongitude" /> <h:inputText
+									value="#{anuncioBean.anuncio.longitude}" id="txtInputLongitude" />
+								<table style="width: 500px;">
+									<tr>
+										<td style="width: 100px;"><h:outputText value="Map Type:" /></td>
+										<td style="width: 400px;"><h:panelGroup>
+											<a href="javascript: void 0"
+												onclick="map.setMapType(G_NORMAL_MAP);"><h:outputText
+												value="#{message.gmap_normal}"></h:outputText></a>
+											<a href="javascript: void 0"
+												onclick="map.setMapType(G_SATELLITE_MAP);"><h:outputText
+												value="#{message.gmap_satelite}"></h:outputText></a>
+											<a href="javascript: void 0"
+												onclick="map.setMapType(G_HYBRID_MAP);"><h:outputText
+												value="#{message.gmap_hibrido}"></h:outputText></a>
+											<br />
+										</h:panelGroup></td>
+									</tr>
+									<tr>
+										<td style="width: 100px;"><h:outputText value="Zoom:" /></td>
+										<td style="width: 400px;"><rich:inputNumberSlider
+											width="400px" id="zoom" showInput="false" minValue="1"
+											maxValue="18" onchange="map.setZoom(this.value)"
+											value="#{gmapBean.zoom}" /></td>
+									</tr>
+								</table>
+
+								<rich:gmap gmapVar="map" style="width:500px; height:500px"
+									gmapKey="#{gmapBean.gmap_key}" zoom="#{gmapBean.zoom}"
+									id="gmap" mapType="G_NORMAL_MAP"
+									lat="#{anuncioBean.anuncio.latitude}"
+									lng="#{anuncioBean.anuncio.longitude}"
+									showGScaleControl="false" showGLargeMapControl="false"
+									showGMapTypeControl="false" oninit="InitEventHandler()" /></center>
+							</rich:panel></td>
+						</tr>
+
+						<tr>
+							<td colspan="2" align="right"><h:commandButton
+								id="btnCadastrar"
+								value="#{message.anuncio_cadastro_form_cadastrar}"
+								action="#{anuncioBean.cadastrar}" /></td>
+						</tr>
+					</table>
+					</center>
+
+					<script>
+	var geocoder;
+
+	function InitEventHandler() {
+		GEvent.addListener(map, "dblclick", getAddress);
+		geocoder = new GClientGeocoder();
+	}
+
+	function searchAddress() {
+		var endereco = document
+				.getElementById("form_anuncio_cadastro:txtEnderecoAProcurar").value;
+		showAddressSearched(endereco);
+	}
+
+	function getAddress(overlay, latlng) {
+		if (latlng != null) {
+			geocoder.getLocations(latlng, showAddress);
+		}
+	}
+
+	function showAddressSearched(endereco) {
+		map.clearOverlays();
+		if (geocoder) {
+			geocoder.getLatLng(endereco, function(point) {
+				if (!point) {
+					alert(endereco + " not found");
+				} else {
+					map.setCenter(point, 13);
+					var marker = new GMarker(point);
+					var latlng = marker.getLatLng();
+					geocoder.getLocations(latlng, showAddress);
+				}
+			});
+		}
+	}
+
+	function showAddress(response) {
+		map.clearOverlays();
+		if (!response || response.Status.code != 200) {
+			alert("#{message.gmap_erro}" + response.Status.code);
+		} else {
+			place = response.Placemark[0];
+			point = new GLatLng(place.Point.coordinates[1],
+					place.Point.coordinates[0]);
+
+			var guarabaIcon = new GIcon(G_DEFAULT_ICON);
+			guarabaIcon.image = "#{facesContext.externalContext.request.contextPath}/img/icones/guaraba_wally_30.gif";
+
+			markerOptions = {
+				icon : guarabaIcon
+			};
+
+			marker = new GMarker(point, markerOptions);
+
+			map.addOverlay(marker);
+			marker.openInfoWindowHtml('<b>orig latlng: </b>' + response.name
+					+ '<br/>' + '<b>Latitude: </b>'
+					+ place.Point.coordinates[0] + '<br/>'
+					+ '<b>Longitude: </b>' + place.Point.coordinates[1]
+					+ '<br/>' + '<b>Status Code: </b>' + response.Status.code
+					+ '<br/>' + '<b>Status Request: </b>'
+					+ response.Status.request + '<br/>' + '<b>Endereco: </b>'
+					+ place.address + '<br/>' + '<b>Precisao: </b>'
+					+ place.AddressDetails.Accuracy + '<br/>'
+					+ '<b>Codigo do pais: </b>'
+					+ place.AddressDetails.Country.CountryNameCode);
+			map.setCenter(point);
+
+			var obj1 = document
+					.getElementById("form_anuncio_cadastro:txtInputLatitude");
+			var obj2 = document
+					.getElementById("form_anuncio_cadastro:txtInputLongitude");
+
+			obj1.value = point.y; //poderia ser place.Point.coordinates[1];
+			obj2.value = point.x; //poderia ser place.Point.coordinates[0];
+		}
+	}
+</script>
+
+					<script
+						src="http://gmaps-utility-library.googlecode.com/svn/trunk/markermanager/release/src/markermanager.js"></script>
+
+				</h:form>
+			</f:view>
+
+		</h:outputText>
+
+		<h:outputText rendered="#{fornecedorBean.fornecedor == null}">
+			<f:view>
+				<h:form id="form_anuncio_logar">
+					<h:outputText value="#{message.NecessarioEstarLogado}"></h:outputText>
+					<span> </span>
+					<h:commandLink id="lnkLogin" action="#{produtoBean.efetuarLogin}"
+						value="#{message.CliqueAquiParaEfetuarOLogin}"></h:commandLink>
+				</h:form>
+			</f:view>
+		</h:outputText>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,39 @@
+<ui:composition
+	template="/WEB-INF/templates/base.jspx"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:rest="http://restfaces.dev.java.net">
+
+	<ui:define name="conteudo">
+		<f:view>
+	        <h:form>
+	        
+		        <center>
+					<table class="formulario" border="0" cellpadding="10" cellspacing="10" width="70%">
+						<tr>
+							<td class="formulario_sessao">
+								<h4><h:outputText value="Logar" /></h4>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<center>
+						            <h:panelGrid columns="2">
+						                <h:outputText value="Login" /><h:inputText value="#{loginBean.login}" />
+						                <h:outputText value="Senha" /><h:inputSecret value="#{loginBean.senha}" />
+						                <h:commandButton value="Entrar" action="#{loginBean.logar}"/> 
+						                <h:commandButton value="Limpar" action="#{loginBean.limpar}" />
+						            </h:panelGrid>
+					            </center>
+		            		</td>
+						</tr>
+					</table>
+				</center>
+	        </h:form>  
+		</f:view>
+	</ui:define>
+</ui:composition>

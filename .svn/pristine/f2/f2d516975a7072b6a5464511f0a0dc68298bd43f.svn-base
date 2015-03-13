@@ -1,0 +1,86 @@
+<ui:composition template="/WEB-INF/templates/base.jspx"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:rest="http://restfaces.dev.java.net"
+	xmlns:m="http://code.google.com/p/gmaps4jsf">
+
+	<ui:define name="title">
+		<f:view>
+			<f:loadBundle basename="messages" var="message" />
+			<h:outputText value="Contato" />
+		</f:view>
+	</ui:define>
+
+	<ui:define name="navegacao">
+		<f:view>
+			<h:form id="form_navegacao">
+				<h:commandLink value="#{message.navegacao_home}"
+					action="#{indexBean.principal}" />
+				<span> </span>
+				<h:outputText value="#{message.navegacao_separador}" />
+				<span> </span>
+				<h:outputText value="Contato" />
+			</h:form>
+		</f:view>
+	</ui:define>
+
+	<ui:define name="titulo">
+		<f:view>
+			<h:outputText value="Contato" />
+		</f:view>
+	</ui:define>
+
+	<ui:define name="conteudo">
+		<f:view>
+			<h:form id="form_anuncio_cadastro">
+				<center>
+				<table class="formulario" border="0" cellpadding="10"
+					cellspacing="10" width="70%">
+					<tr>
+						<td colspan="2" class="formulario_sessao">
+						<h4><h:outputText value="Contato" /></h4>
+						</td>
+					</tr>
+					<tr>
+						<td width="90" class="formulario_campo"><h:outputText
+							value="Nome" /></td>
+						<td><h:inputText id="nome"
+							value="#{contatoBean.faleConosco.nome}" size="50" maxlength="100"
+							required="true" class="js_hoverLauncher" />
+						<div class="js_hoverData">#{message.Escreva_o_seu_nome}</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="90" class="formulario_campo"><h:outputText
+							value="E-mail" /></td>
+						<td><h:inputText id="email"
+							value="#{contatoBean.faleConosco.email}" size="50"
+							maxlength="100" required="true" class="js_hoverLauncher" />
+						<div class="js_hoverData">#{message.Escreva_o_seu_email}</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="formulario_campo" style="vertical-align: top;"><h:outputText
+							value="Mensagem" /></td>
+						<td><h:inputTextarea id="mensagem"
+							value="#{contatoBean.faleConosco.mensagem}" rows="3"
+							required="true" cols="32" class="js_hoverLauncher" />
+						<div class="js_hoverData">#{message.Escreva_sua_mensagem}</div>
+						</td>
+					</tr>
+
+					<tr>
+						<td colspan="2" align="right"><h:commandButton id="btnEnviar"
+							value="Enviar" action="#{contatoBean.enviaEmail}" /></td>
+					</tr>
+				</table>
+				</center>
+			</h:form>
+		</f:view>
+
+	</ui:define>
+</ui:composition>

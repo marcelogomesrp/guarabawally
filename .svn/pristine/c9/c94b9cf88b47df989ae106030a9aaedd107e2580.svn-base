@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf12461466634810" configfile="/guaraba-wally-web/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="index" x="338" y="178" id="pf12463207645260" referenceLink="//@navigationRule.15/@navigationCase.0/@toViewId|" path="/index.jspx"/>
+  <nodes xsi:type="pageflow:PFPage" name="fornecedor/cadastro" x="338" y="562" id="pf12463207645261" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" path="/fornecedor/cadastro.jspx"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="2866" id="pf12463210494586" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="principal" x="122" y="4017" id="pf12463380310699" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" path="/index.jspx"/>
+  <nodes xsi:type="pageflow:PFPage" name="login" x="338" y="946" id="pf12482918343333" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" path="/login.jspx"/>
+  <nodes xsi:type="pageflow:PFPage" name="produto/cadastro" x="338" y="1330" id="pf12482934509645" referenceLink="//@navigationRule.18/@navigationCase.0/@toViewId|" path="/produto/cadastro.jspx"/>
+  <nodes xsi:type="pageflow:PFPage" name="anuncio/cadastro" x="338" y="1714" id="pf12483537335254" referenceLink="//@navigationRule.20/@navigationCase.0/@toViewId|" path="/anuncio/cadastro.jspx"/>
+  <nodes xsi:type="pageflow:PFPage" name="anuncio/lista" x="338" y="2098" id="pf12517681644895" referenceLink="//@navigationRule.21/@navigationCase.0/@toViewId|" path="/anuncio/lista.jspx"/>
+  <nodes xsi:type="pageflow:PFPage" name="produto/visualiza" x="338" y="2482" id="pf12527084212651" referenceLink="//@navigationRule.17/@navigationCase.0/@toViewId|" path="/produto/visualiza.jspx"/>
+  <nodes xsi:type="pageflow:PFPage" name="anuncio/visualiza" x="338" y="2866" id="pf12527709649211" referenceLink="//@navigationRule.22/@navigationCase.0/@toViewId|" path="/anuncio/visualiza.jspx"/>
+  <nodes xsi:type="pageflow:PFPage" name="produto/listaporfornecedor" x="338" y="3250" id="pf125362751279120" referenceLink="//@navigationRule.19/@navigationCase.0/@toViewId|" path="/produto/listaporfornecedor.jspx"/>
+  <nodes xsi:type="pageflow:PFPage" name="fornecedor/editarendereco" x="338" y="3634" id="pf12538312729293" referenceLink="//@navigationRule.12/@navigationCase.0/@toViewId|" path="/fornecedor/editarendereco.jspx"/>
+  <nodes xsi:type="pageflow:PFPage" name="fornecedor/editarcontato" x="338" y="4018" id="pf12538312729294" referenceLink="//@navigationRule.13/@navigationCase.0/@toViewId|" path="/fornecedor/editarcontato.jspx"/>
+  <nodes xsi:type="pageflow:PFPage" name="fornecedor/editarsenha" x="338" y="4402" id="pf12538312729295" referenceLink="//@navigationRule.14/@navigationCase.0/@toViewId|" path="/fornecedor/editarsenha.jspx"/>
+  <nodes xsi:type="pageflow:PFPage" name="fornecedor/minhaconta" x="338" y="4786" id="pf12543319451031" referenceLink="//@navigationRule.11/@navigationCase.0/@toViewId|" path="/fornecedor/minhaconta.jspx"/>
+  <nodes xsi:type="pageflow:PFPage" name="faleconosco" x="338" y="5170" id="pf12562121160725" referenceLink="//@navigationRule.8/@navigationCase.0/@toViewId|" path="/faleconosco.jspx"/>
+  <nodes xsi:type="pageflow:PFPage" name="sobre" x="122" y="5169" id="pf12562121160726" referenceLink="//@navigationRule.9/@navigationCase.0/@toViewId|" path="/faleconosco.jspx"/>
+  <nodes xsi:type="pageflow:PFPage" name="sobre" x="338" y="5554" id="pf12570923547213" referenceLink="//@navigationRule.9/@navigationCase.0/@toViewId|" path="/sobre.jspx"/>
+  <nodes xsi:type="pageflow:PFPage" name="anuncio/edita" x="338" y="5938" id="pf12570923547214" referenceLink="//@navigationRule.24/@navigationCase.0/@toViewId|" path="/anuncio/edita.jspx"/>
+</pageflow:Pageflow>

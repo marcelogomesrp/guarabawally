@@ -1,0 +1,132 @@
+#linha_acima_menu {
+	background-color: #4680A7;
+	width: 800px;
+	height: 3px;
+}
+
+#linha_abaixo_menu {
+	background-color: orange;
+	width: 800px;
+	height: 3px;
+}
+
+#menu {
+	background-color: #32547F;
+	width: 800px;
+	height: 25px;
+}
+
+#itens_menu {
+	padding: 5px 0px 0px 0px;
+	color: #FFFFFF;
+}
+
+#itens_menu a {
+	color: #FFFFFF;
+	text-decoration: none;
+	font-weight: bold;
+	margin: 0px 10px 0px 10px;
+}
+
+#itens_menu a:hover {
+	color: orange;
+}
+
+UL {
+	PADDING: 0px;
+	MARGIN: 0px;
+	LIST-STYLE-TYPE: none
+}
+
+LI {
+	PADDING-RIGHT: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-BOTTOM: 0px;
+	PADDING-TOP: 0px;
+	MARGIN: 0px;
+	LIST-STYLE-TYPE: none;
+}
+
+UL#menu {
+	font: 12px Verdana;
+	font-weight: bold;
+	height: 15px;
+}
+
+UL#menu LI {
+	BORDER-RIGHT: #c2ebf0 1px solid;
+	DISPLAY: block;
+	FLOAT: LEFT;
+	LINE-HEIGHT: 20px;
+	HEIGHT: 15px
+}
+
+UL#menu LI:hover { /*BACKGROUND: orange;*/
+	
+}
+
+UL#menu>LI:first-child {
+	PADDING-LEFT: 8px;
+}
+
+UL#menu LI.first {
+	PADDING-LEFT: 8px;
+}
+
+UL#menu LI.last {
+	BORDER-RIGHT: 0px;
+	PADDING-RIGHT: 8px;
+}
+
+UL#menu LI A {
+	DISPLAY: block;
+	PADDING-RIGHT: 11px;
+	PADDING-LEFT: 11px;
+	PADDING-BOTTOM: 0px;
+	PADDING-TOP: 3px;
+	FONT: bold 10px Arial;
+	/*TEXT-TRANSFORM: uppercase;*/
+	COLOR: #fff;
+	HEIGHT: 15px;
+	TEXT-DECORATION: none;
+}
+
+UL#menu LI UL {
+	DISPLAY: none;
+	Z-INDEX: 9999;
+}
+
+UL#menu LI.last:hover UL {
+	MARGIN-LEFT: -26px;
+}
+
+UL#menu LI:first-child:hover UL {
+	MARGIN-LEFT: -8px;
+}
+
+UL#menu LI:hover UL {
+	CLEAR: both;
+	DISPLAY: block;
+	MARGIN: 0px;
+	WIDTH: 140px;
+	POSITION: absolute;
+}
+
+UL#menu LI:hover UL LI { /*background-position: #FFF;*/
+	display: block;
+	background: #32547F;
+	float: none;
+	margin-bottom: -1px;
+	border-left: #DFEFF8 2px solid;
+	border-right: #AAAAF8 2px solid;
+	border-top: #DFEFF8 2px solid;
+	border-bottom: #AAAAF8 2px solid;
+	width: 150px;
+	border-color: #DFEFF8 #000066 #000066 #DFEFF8;
+}
+
+UL#menu LI UL LI:hover {
+	font-weight: bold;
+	color: #FFF;
+	/*background-color: orange;*/
+}
